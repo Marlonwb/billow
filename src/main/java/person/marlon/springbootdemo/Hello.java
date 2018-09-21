@@ -1,5 +1,7 @@
 package person.marlon.springbootdemo;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +17,8 @@ import java.util.concurrent.TimeUnit;
 @EnableAutoConfiguration
 @RequestMapping("/**")
 public class Hello {
+
+	private Logger logger = LoggerFactory.getLogger(Hello.class);
 
     @RequestMapping("/aaa")
     String home() {
@@ -38,7 +42,7 @@ public class Hello {
 		redisCacheTemplate.opsForValue().set(foo1.getKey(),foo1,3600,TimeUnit.SECONDS);
 		Foo resultFoo = (Foo)redisCacheTemplate.opsForValue().get(foo.getKey());
 		Foo resultFoo1 = (Foo)redisCacheTemplate.opsForValue().get(foo1.getKey());
-		System.out.println("resultFoo = " + resultFoo.getValue());
-		System.out.println("resultFoo1 = " + resultFoo1.getValue());
+		logger.warn("resultFoo = " + resultFoo.getValue());
+		logger.warn("resultFoo1 = " + resultFoo1.getValue());
     }
 }

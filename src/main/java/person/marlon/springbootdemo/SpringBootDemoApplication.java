@@ -9,4 +9,15 @@ public class SpringBootDemoApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootDemoApplication.class, args);
 	}
+
+	//退出
+//	@Bean
+//	public ExitCodeGenerator exitCodeGenerator() {
+//		return () -> 42;
+//	}
+//
+//	public static void main(String[] args) {
+//		System.exit(SpringApplication
+//				.exit(SpringApplication.run(SpringBootDemoApplication.class, args)));
+//	}
 }
