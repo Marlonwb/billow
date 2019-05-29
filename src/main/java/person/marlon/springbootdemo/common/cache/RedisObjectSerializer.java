@@ -11,7 +11,7 @@ public class RedisObjectSerializer implements RedisSerializer<Object> {
 	private Converter<Object, byte[]> serializer = new SerializingConverter();
 	private Converter<byte[], Object> deserializer = new DeserializingConverter();
 
-	static final byte[] EMPTY_ARRAY = new byte[0];
+	private static final byte[] EMPTY_ARRAY = new byte[0];
 
 	@Override
 	public byte[] serialize(Object o) throws SerializationException {
